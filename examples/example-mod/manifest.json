@@ -102,7 +102,7 @@
       },
       "cascade_echo": {
         "name": "Cascade Echo",
-        "description": "20% chance to repeat any special; buff specials gain duration.",
+        "description": "20% chance to repeat any special; specials are 10% stronger.",
         "rarity": 3,
         "max_level": 2,
         "effect": {

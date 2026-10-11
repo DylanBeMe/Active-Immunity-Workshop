@@ -56,8 +56,9 @@ against all the normal safety limits.
 Yes, by design. A Workshop item is **data only**. The game never runs code,
 scripts, scenes, or programs from a Workshop item. Everything a mod can do is
 picking from a fixed list of values the game already knows how to handle, and
-every one of those values is range-checked before it is used. The worst a
-broken or malicious mod can do is fail to load.
+every one of those values is range-checked before it is used. Invalid content
+is rejected, but an enabled mod can still change the game's balance and use the
+computer's resources within those limits. Only enable content you trust.
 
 ### Mods and achievements
 
@@ -88,9 +89,10 @@ Two things can happen in a multiplayer lobby:
   session, and thrown away afterwards. It never changes what you have
   subscribed to.
 
-Sounds and images are **not** included in that transfer, because only text is
-sent. If a host's mod replaces a sound or a texture, subscribe to the item
-yourself to see and hear it.
+A mod that uses its own sounds or images cannot be sent this way, because
+only text is transferred. Every player must subscribe to that item, or the host
+turns it off before playing together. The game never quietly drops the sounds
+or images instead.
 
 A player cannot ready up until their content matches the host's exactly.
 
@@ -892,10 +894,18 @@ Other things worth knowing:
   the format and size limits. Anything out of bounds silently falls back to
   the original.
 - **A friend cannot join my modded lobby.** They must accept the
-  host-content offer, or subscribe to the same items. Sounds and images are
-  never sent — those always need a subscription.
+  host-content offer, or subscribe to the same items. A mod with its own
+  sounds or images can never be sent: everyone must subscribe to it, or the
+  host turns it off.
 - **My item is rejected with `unsupported effect`.** An upgrade uses an
   effect name that is not on the list above. Check the spelling.
+
+## Where your files live
+
+Your saves are in the game's own per-user data folder, not in the Steam install
+directory. Normal progress can sync through Steam Cloud. Modded progress, debug
+data, and temporary multiplayer content packages are never uploaded as normal
+progress.
 
 ---
 

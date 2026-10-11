@@ -138,8 +138,10 @@ Mention these when relevant so nobody is surprised:
   separate modded statistics, Tokens, and Complement progression.
 - When several mods change the same thing, the one with the higher Workshop
   item ID wins.
-- In multiplayer, a host's data can be transferred to joining players, but
-  images and sounds never are — those players need to subscribe.
+- In multiplayer, a host's mods can be transferred to joining players only
+  when they are pure data. A mod with its own images or sounds cannot be
+  transferred at all: every player must subscribe to it, or the host turns it
+  off.
 
 ## Do not
 

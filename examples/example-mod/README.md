@@ -45,12 +45,29 @@ Active multiplayer source hash: computed in-game from enabled source IDs and con
 
 ## Publish it
 
-1. Zip or point a Steam Workshop upload tool at this folder, with
-   `manifest.json` at the top level.
-2. Upload it to the Active Immunity Workshop.
-3. Subscribe to your own item, then **REFRESH** and enable it in the
-   in-game Mod Manager.
-4. To iterate, edit `manifest.json`, re-upload, let Steam download the
-   update, and **REFRESH** again.
+Upload the folder itself; do not zip it. The game reads `manifest.json` from
+the top of the uploaded folder.
+
+1. Copy this folder out of the repository, rename it, and make it yours.
+   The whole folder is uploaded, so keep only `manifest.json` and any images
+   or sounds it uses in it (this `README.md` can go).
+2. Upload it as a private item with the upload script from the repository
+   root ([README, Part 5](../../README.md#part-5--testing-and-publishing)
+   explains the one-time SteamCMD setup):
+
+   ```text
+   tools/upload_workshop_mod.sh path/to/my-mod --steam-user YOUR_STEAM_NAME
+   ```
+
+   On Windows:
+
+   ```text
+   powershell -ExecutionPolicy Bypass -File tools\upload_workshop_mod.ps1 -ModFolder path\to\my-mod -SteamUser YOUR_STEAM_NAME
+   ```
+
+3. Accept the Workshop legal agreement on the item's page, subscribe to it,
+   then **REFRESH** and enable it in the in-game Mod Manager.
+4. To iterate, edit `manifest.json` and run the same command again: it updates
+   the same item. Let Steam download the update, then **REFRESH** again.
 
 See the main [README](../../README.md) for the full mod format reference.
