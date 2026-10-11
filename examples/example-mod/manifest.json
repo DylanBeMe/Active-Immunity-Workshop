@@ -1,0 +1,159 @@
+{
+  "name": "Spore Lancer Starter Pack",
+  "author": "Active Immunity Community",
+  "version": "1.1.0",
+  "description": "Adds a custom fungus enemy, a custom cell with a damage-buff special, a ring projectile pattern, an opening wave override, and special-focused upgrades.",
+  "settings": [
+    {
+      "id": "opening_spore_count",
+      "label": "Opening Spore Count",
+      "description": "Number of Spore Lancers in the first wave.",
+      "type": "integer",
+      "default": 8,
+      "min": 4,
+      "max": 40,
+      "step": 4,
+      "target": [
+        "wave_overrides",
+        "1",
+        "pools",
+        0,
+        "count"
+      ]
+    },
+    {
+      "id": "spore_ring_size",
+      "label": "Spore Ring Size",
+      "description": "Projectiles fired by each Spore Lancer ring.",
+      "type": "integer",
+      "default": 12,
+      "min": 6,
+      "max": 24,
+      "step": 2,
+      "target": [
+        "projectile_patterns",
+        "spore_ring",
+        "count"
+      ]
+    }
+  ],
+  "content": {
+    "max_wave": 28,
+    "wave_overrides": {
+      "1": {
+        "interval": 0.2,
+        "pools": [
+          {
+            "enemy": "spore_lancer",
+            "count": 8
+          },
+          {
+            "enemy": "fungus_basic",
+            "count": 20
+          }
+        ]
+      }
+    },
+    "enemy_definitions": {
+      "spore_lancer": {
+        "base": "fungus_basic",
+        "name": "Spore Lancer",
+        "description": "A fungus variant that fires a slow ring of spores.",
+        "overrides": {
+          "attack_pattern": "aimed_spread",
+          "aimed_spread_count": 5,
+          "projectile_pattern": "spore_ring"
+        }
+      }
+    },
+    "cell_definitions": {
+      "memory_cell": {
+        "base": "t_helper",
+        "name": "Memory Cell",
+        "description": "A support cell with a wider spread and stronger damage buff.",
+        "archetype": "Support",
+        "overrides": {
+          "fire_pattern": "spread3",
+          "special_type": "damage_buff",
+          "special_duration": 8.0,
+          "special_multiplier": 1.25,
+          "special_description": "Memory Cascade - boosts outgoing damage for 8s.",
+          "color": "#ffbd72"
+        }
+      }
+    },
+    "projectile_patterns": {
+      "spore_ring": {
+        "type": "ring",
+        "count": 12,
+        "speed_mult": 0.8,
+        "damage_mult": 0.7
+      }
+    },
+    "upgrades": {
+      "spore_resistance": {
+        "name": "Spore Resistance",
+        "description": "+5% movement speed.",
+        "rarity": 1,
+        "max_level": 3,
+        "effect": {
+          "speed_mult": 1.05
+        }
+      },
+      "cascade_echo": {
+        "name": "Cascade Echo",
+        "description": "20% chance to repeat any special; buff specials gain duration.",
+        "rarity": 3,
+        "max_level": 2,
+        "effect": {
+          "echo_chance": 0.2,
+          "special_damage_mult": 1.1
+        }
+      },
+      "spore_orbit": {
+        "name": "Spore Orbit",
+        "description": "Antibody spores orbit your cell and shred what they touch.",
+        "rarity": 2,
+        "max_level": 2,
+        "effect": {
+          "orbit_count_add": 1
+        }
+      },
+      "spore_halo": {
+        "name": "Spore Halo",
+        "description": "Evolved Spore Orbit: two more spores that strike twice as often.",
+        "rarity": 4,
+        "max_level": 1,
+        "evolves_from": "spore_orbit",
+        "effect": {
+          "orbit_count_add": 2,
+          "orbit_hit_interval_mult": 0.5
+        }
+      }
+    },
+    "synergies": {
+      "echoing_spores": {
+        "name": "Echoing Spores",
+        "description": "A signal that repeats itself keeps the orbiting spores spinning faster.",
+        "requires": [
+          "spore_orbit",
+          "cascade_echo"
+        ],
+        "effect": {
+          "orbit_momentum_scale": 1.0,
+          "special_duration_bonus": 1.0
+        }
+      }
+    },
+    "run_modifiers": {
+      "spore_season": {
+        "name": "Spore Season",
+        "description": "50% more pathogens in every wave, but every kill scores 25% more.",
+        "effects": {
+          "enemy_count_multiplier": 1.5,
+          "score_multiplier": 1.25
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+; Minimal Godot project used only to run the offline Workshop mod validator.
+; It intentionally contains no game content — see README.md.
+
+config_version=5
+
+[application]
+
+config/name="Active Immunity Workshop Tools"
+config/features=PackedStringArray("4.7")

@@ -1,0 +1,41 @@
+Active Immunity Workshop modding docs and tools
+Copyright (c) 2026 Dylpickle Studios. All rights reserved.
+
+This repository is not open source. It is published so players can make
+Steam Workshop mods for Active Immunity. Everything not granted below
+remains reserved.
+
+1. Example mod (examples/)
+
+   You may copy, modify and publish the example mod, in whole or in part,
+   as the starting point for your own Active Immunity Workshop mods. No
+   attribution is required.
+
+2. Upload scripts (tools/upload_workshop_mod.sh, tools/upload_workshop_mod.ps1)
+
+   You may use, copy and modify the upload scripts to publish your Active
+   Immunity Workshop mods, and share modified copies with other mod authors
+   for the same purpose.
+
+3. Documentation (README.md, AGENTS.md, CLAUDE.md)
+
+   You may read and use the documentation to make Active Immunity mods,
+   including giving it to an AI assistant that is helping you do so. You
+   may quote short passages when helping others make mods.
+
+4. Validation code (tools/validate_workshop_mod.gd,
+   src/progression/workshop_content_registry.gd, project.godot)
+
+   You may download and run this code, including locally modified copies
+   for your own debugging, solely to check mods for Active Immunity. You may
+   not redistribute it, publish modified versions, or use it, or any part
+   of it, in other software. src/progression/workshop_content_registry.gd
+   is part of the Active Immunity game and is shared only so the validator
+   gives the same results as the game.
+
+Active Immunity, the game itself, its code, art, audio and other assets are
+not part of this repository and are not licensed by it.
+
+THE CONTENTS OF THIS REPOSITORY ARE PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY ARISING FROM THEIR USE.
